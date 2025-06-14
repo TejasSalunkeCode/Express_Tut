@@ -1,26 +1,51 @@
 import express from "express";
-import {PORT} from "./env.js"
+import { PORT } from "./env.js"
 import path from "path";
+import { log } from "console";
 const app = express();
 
-app.use(express.static("public"));
+// const showdata= async()=>{
+//   try {
+//     const response=await fetch("https://jsonplaceholder.typicode.com/todos/1");
+//     const json=response.json();
+//     console.log(json);
+
+//   } catch (error) {
+//     console.log(error);
+
+//   }
+// }
+// showdata();
+
+const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+const json = await response.json();
+console.log(json);
+
+console.log(import.meta.dirname);
+console.log(import.meta.filename);
+
+
+
+//absoloute path
+const staticPath = path.join(import.meta.dirname, "public")
+app.use("/public", express.static(staticPath));
 
 app.get("/about", (req, res) => {
-    res.send("Now You are in about Page")
+  res.send("Now You are in about Page")
 })
 
 app.get("/", (req, res) => {
-    const homePagePath=path.join(import.meta.dirname,"public","index.html")
-    res.sendFile(homePagePath)
+  const homePagePath=path.join(import.meta.dirname,"public","index.html")
+  res.sendFile(homePagePath)
 
-    // console.log(import.meta.url);
-    // const __filename=new URL(import.meta.url).pathname;
-    // console.log(__filename);
-    
+  // console.log(import.meta.url);
+  // const __filename=new URL(import.meta.url).pathname;
+  // console.log(__filename);
+
 })
 
 app.get("/contact", (req, res) => {
-   return res.send(` <div class="container">
+  return res.send(` <div class="container">
     <h1>URL Shortener</h1>
     <form id="shorten-form">
       <div>
@@ -41,13 +66,13 @@ app.get("/contact", (req, res) => {
 })
 
 
-    // const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running at PORT : ${PORT}`);
-        console.log();
+// const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running at PORT : ${PORT}`);
+  console.log();
 
 
-    })
+})
 
-      const __filename=new URL(import.meta.url).pathname;
-      console.log(__filename);
+const __filename = new URL(import.meta.url).pathname;
+console.log(__filename);
