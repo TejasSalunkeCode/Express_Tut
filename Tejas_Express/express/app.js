@@ -40,7 +40,11 @@ app.get("/profile/:username",(req,res)=>{
   
 })
 
-
+app.get("/product",(req,res)=>{
+  console.log(req.query);
+  // res.send(`<h1>Product Page</h1>`)
+  res.send(`<h1>User search for ${req.query.search}</h1>`)
+})
 app.get("/profile/:username/article/:slug",(req,res)=>{
   console.log(req.params);
   const formatedSlug=req.params.slug.replace("\-\g"," ")
