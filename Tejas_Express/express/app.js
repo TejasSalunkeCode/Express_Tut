@@ -30,6 +30,19 @@ console.log(import.meta.filename);
 const staticPath = path.join(import.meta.dirname, "public")
 app.use("/public", express.static(staticPath));
 
+
+// app.get("/contact",(req,res)=>{
+//   console.log(req.query);
+//   res.redirect("/");
+// })
+app.use(express.urlencoded({extended:true}));
+app.post("/contact",(req,res)=>{
+  console.log(req.body);
+  res.redirect("/");
+})
+
+
+
 app.get("/about", (req, res) => {
   res.send("Now You are in about Page")
 })
