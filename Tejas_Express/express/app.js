@@ -43,6 +43,7 @@ app.get("/profile/:username",(req,res)=>{
 
 app.get("/profile/:username/article/:slug",(req,res)=>{
   console.log(req.params);
+  const formatedSlug=req.params.slug.replace("\-\g"," ")
   res.send(`<h1>Article ${req.params.username} by ${req.params.slug}</h1>`)
   
 })
