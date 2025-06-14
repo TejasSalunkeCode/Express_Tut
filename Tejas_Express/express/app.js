@@ -1,7 +1,6 @@
 import express from "express";
 import { PORT } from "./env.js"
 import path from "path";
-import { log } from "console";
 const app = express();
 
 // const showdata= async()=>{
@@ -95,6 +94,15 @@ app.get("/contact", (req, res) => {
     <!-- <ul id="Shortened-urls"></ul> -->
      <ul id="shortened-urls"></ul>
   </div>`)
+})
+
+
+
+
+app.use((req,res)=>{
+  return res.status(404).send("page not found")
+  // return res.status(404).sendFile(path.join(import.meta.dirname,"view","404.html"))
+
 })
 
 
