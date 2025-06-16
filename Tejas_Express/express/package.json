@@ -1,18 +1,27 @@
 {
-  "name": "express",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --env-file=.env --watch app.js"
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
   },
-  "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^5.1.0",
-    "zod": "^3.25.63"
-  }
+  "connections": [
+    {
+      "id": "f9a99147-0095-496a-9dbb-59cb15b6d2a7",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1750065282435"
+        }
+      },
+      "favorite": {
+        "name": "tejas",
+        "color": "color3"
+      },
+      "savedConnectionType": "favorite",
+      "connectionOptions": {
+        "connectionString": "mongodb://localhost:27017/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
 }
